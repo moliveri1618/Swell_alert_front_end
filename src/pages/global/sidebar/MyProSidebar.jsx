@@ -11,7 +11,7 @@ import { useTheme, Box, Typography, IconButton } from "@mui/material";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import WaterIcon from '@mui/icons-material/Water';
 import LeaderboardIcon from '@mui/icons-material/Leaderboard';
-import InsertChartIcon from '@mui/icons-material/InsertChart';
+import MapIcon from '@mui/icons-material/Map';
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
@@ -196,6 +196,14 @@ const MyProSidebar = () => {
             />
 
             <Item
+              title="Spot Geo Location"
+              to="/spot_geolocation"
+              icon={<MapIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+
+            <Item
               title="Manage Team"
               to="/team"
               icon={<PeopleOutlinedIcon />}
@@ -222,7 +230,7 @@ const MyProSidebar = () => {
               color={colors.grey[300]}
               sx={{ m: "15px 20px 5px 20px" }}
             >
-              Pages
+              Airplane Tickets
             </Typography>
             <Item
               title="Profile Form"
