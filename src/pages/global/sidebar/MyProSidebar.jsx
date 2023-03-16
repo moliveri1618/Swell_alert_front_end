@@ -114,7 +114,7 @@ const MyProSidebar = () => {
                 ml="15px"
               >
                 <Typography variant="h3" color={colors.grey[100]}>
-                  ADMINIS
+                  {/*ADMINIS*/}
                 </Typography>
                 <IconButton
                   onClick={
@@ -143,7 +143,7 @@ const MyProSidebar = () => {
                   alt="profile user"
                   width="100px"
                   height="100px"
-                  src={"../../assets/user.png"}
+                  src={"../../assets/wave1.png"}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
@@ -154,7 +154,7 @@ const MyProSidebar = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  Harun Jeylan
+                  🚨 Swell Alert 🚨
                 </Typography>
               </Box>
             </Box>
@@ -163,6 +163,14 @@ const MyProSidebar = () => {
             <Item
               title="Dashboard"
               to="/"
+              icon={<HomeOutlinedIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+
+            <Item
+              title="Spot List"
+              to="/spot_list"
               icon={<HomeOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
