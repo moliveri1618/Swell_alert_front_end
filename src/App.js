@@ -6,7 +6,7 @@ import { MyProSidebarProvider } from "./pages/global/sidebar/sidebarContext";
 import Topbar from "./pages/global/Topbar";
 
 import Dashboard from "./pages/dashboard";
-import DashboardD from "./pages/spot_list";
+import SpotList from "./pages/spot_list";
 import Team from "./pages/team";
 import Invoices from "./pages/invoices";
 import Contacts from "./pages/contacts";
@@ -30,7 +30,7 @@ const App = () => {
               <Topbar />
               <Routes>
                 <Route path="/" element={<Dashboard />} />
-                <Route path="/spot_list" element={<DashboardD />} />
+                <Route path="/spot_list" element={<SpotList />} />
                 <Route path="/team" element={<Team />} />
                 <Route path="/contacts" element={<Contacts />} />
                 <Route path="/invoices" element={<Invoices />} />

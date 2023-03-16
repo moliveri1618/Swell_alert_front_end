@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 import { tokens } from "../../../theme";
 import { useTheme, Box, Typography, IconButton } from "@mui/material";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import WaterIcon from '@mui/icons-material/Water';
+import ListIcon from '@mui/icons-material/List';
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
@@ -171,7 +173,7 @@ const MyProSidebar = () => {
             <Item
               title="Spot List"
               to="/spot_list"
-              icon={<HomeOutlinedIcon />}
+              icon={<WaterIcon />}
               selected={selected}
               setSelected={setSelected}
             />
