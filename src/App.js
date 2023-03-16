@@ -7,6 +7,7 @@ import Topbar from "./pages/global/Topbar";
 
 import Dashboard from "./pages/dashboard";
 import SpotList from "./pages/spot_list";
+import DataAnalyzer from "./pages/spot_data_analyzer";
 import Team from "./pages/team";
 import Invoices from "./pages/invoices";
 import Contacts from "./pages/contacts";
@@ -31,6 +32,7 @@ const App = () => {
               <Routes>
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/spot_list" element={<SpotList />} />
+                <Route path="/data_analyzer" element={<DataAnalyzer />} />
                 <Route path="/team" element={<Team />} />
                 <Route path="/contacts" element={<Contacts />} />
                 <Route path="/invoices" element={<Invoices />} />

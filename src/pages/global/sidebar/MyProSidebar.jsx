@@ -10,7 +10,8 @@ import { tokens } from "../../../theme";
 import { useTheme, Box, Typography, IconButton } from "@mui/material";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import WaterIcon from '@mui/icons-material/Water';
-import ListIcon from '@mui/icons-material/List';
+import LeaderboardIcon from '@mui/icons-material/Leaderboard';
+import InsertChartIcon from '@mui/icons-material/InsertChart';
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
@@ -170,6 +171,14 @@ const MyProSidebar = () => {
               setSelected={setSelected}
             />
 
+            <Typography
+              variant="h6"
+              color={colors.grey[300]}
+              sx={{ m: "15px 20px 5px 20px" }}
+            >
+              Waves
+            </Typography>
+
             <Item
               title="Spot List"
               to="/spot_list"
@@ -178,13 +187,14 @@ const MyProSidebar = () => {
               setSelected={setSelected}
             />
 
-            <Typography
-              variant="h6"
-              color={colors.grey[300]}
-              sx={{ m: "15px 20px 5px 20px" }}
-            >
-              Data
-            </Typography>
+            <Item
+              title="Spot Data Analyzer"
+              to="/data_analyzer"
+              icon={<LeaderboardIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+
             <Item
               title="Manage Team"
               to="/team"
