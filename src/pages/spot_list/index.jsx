@@ -10,6 +10,8 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataContacts } from "../../data/mockData";
 import Header from "../../components/Header";
+import LineChart from "../../components/LineChart";
+
 
 const SpotList = () => {
   const theme = useTheme();
@@ -103,22 +105,36 @@ const SpotList = () => {
             onClose={handleClose}
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
+            sx={{
+              "& .MuiDialog-container": {
+                "& .MuiPaper-root": {
+                  width: "100%",
+                  maxWidth: "3000px",  // Set your width here
+                  height: "100%",
+                  maxHeight: "1000px",
+                },
+              },
+            }}
           >
             <DialogTitle id="alert-dialog-title">
               {"Use Google's location service?"}
             </DialogTitle>
-            <DialogContent>
+            {/* <DialogContent>
               <DialogContentText id="alert-dialog-description">
                 Let Google help apps determine location. This means sending anonymous
                 location data to Google, even when no apps are running.
               </DialogContentText>
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={handleClose}>Disagree</Button>
-              <Button onClick={handleClose} >
-                Agree
-              </Button>
-            </DialogActions>
+            </DialogContent> */}
+            <Box m="20px" height="50vh" p="2px">
+              <Header title="Line CHART" subtitle="simple line chart" />
+              <LineChart />
+              <DialogActions>
+                <Button onClick={handleClose}>Disagree</Button>
+                <Button onClick={handleClose} >
+                  Agree
+                </Button>
+              </DialogActions>
+            </Box>
           </Dialog>
         </div>
       </Box>
