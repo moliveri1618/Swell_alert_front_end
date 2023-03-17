@@ -40,7 +40,8 @@ const SpotList = () => {
 
   const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
+  const handleClickOpen = (rowData) => {
+    console.log(rowData);
     setOpen(true);
   };
 
@@ -87,6 +88,7 @@ const SpotList = () => {
       >
         <DataGrid
           rows={mockDataContacts}
+          onRowClick={(rowData) => handleClickOpen(rowData)}
           columns={columns}
           components={{ Toolbar: GridToolbar }}
         />
