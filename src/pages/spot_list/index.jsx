@@ -97,9 +97,6 @@ const SpotList = () => {
       </Box>
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <div>
-          <Button variant="contained" onClick={handleClickOpen}>
-            Open alert dialog
-          </Button>
           <Dialog
             open={open}
             onClose={handleClose}
