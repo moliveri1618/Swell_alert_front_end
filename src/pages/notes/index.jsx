@@ -57,8 +57,6 @@ const Notes = () => {
         console.log(allNotes);
         setSelectedTag(tag);
         setNotes(allNotes.filter((note) => note.tags.includes(tag)));
-        console.log()
-        //setNotes(allNotes.filter((note) => note.tags.includes(tag)));
     };
 
 
