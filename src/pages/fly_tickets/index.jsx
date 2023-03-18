@@ -20,7 +20,7 @@ const AllEvents = [
     {
         id: "12315",
         title: "All-day event",
-        date: "2022-09-14",
+        date: "2023-03-14",
     },
     {
         id: "5123",
@@ -36,47 +36,7 @@ const AllEvents = [
         id: "1231",
         title: "Ciaso",
         date: "2022-09-11",
-    },
-    // {
-    //     id: "12315",
-    //     title: "All-day event",
-    //     date: "2022-09-14",
-    // },
-    // {
-    //     id: "5123",
-    //     title: "Timed event",
-    //     date: "2022-09-28",
-    // },
-    // {
-    //     id: "111",
-    //     title: "Ciaso",
-    //     date: "2022-09-11",
-    // },
-    // {
-    //     id: "1231",
-    //     title: "Ciaso",
-    //     date: "2022-09-11",
-    // },
-    // {
-    //     id: "12315",
-    //     title: "All-day event",
-    //     date: "2022-09-14",
-    // },
-    // {
-    //     id: "5123",
-    //     title: "Timed event",
-    //     date: "2022-09-28",
-    // },
-    // {
-    //     id: "111",
-    //     title: "Ciaso",
-    //     date: "2022-09-11",
-    // },
-    // {
-    //     id: "1231",
-    //     title: "Ciaso",
-    //     date: "2022-09-11",
-    // }
+    }
 ];
 
 const FlyTickets = () => {
@@ -182,10 +142,26 @@ const FlyTickets = () => {
                             selectable={true}
                             selectMirror={true}
                             dayMaxEvents={true}
-                            select={handleDateClick}
-                            eventClick={handleEventClick}
+                            // select={handleDateClick}
+                            // eventClick={handleEventClick}
                             eventsSet={(events) => setCurrentEvents(events)}
                             initialEvents={AllEvents}
+                            eventContent={(eventInfo) => {
+                                console.log(eventInfo)
+                                return (
+                                    <div
+                                        style={{
+                                            backgroundColor: 'red', // change the background color of the event tag
+                                            borderRadius: '4px', // add rounded corners to the event tag
+                                            padding: '5px', // add some padding to the event tag
+                                            fontSize: '12px', // change the font size of the event tag
+                                            fontWeight: 'bold', // add bold font weight to the event tag
+                                        }}
+                                    >
+                                        {eventInfo.timeText} {eventInfo.event.title}
+                                    </div>
+                                );
+                            }}
                         />
                     </Box>
                 </Grid>
