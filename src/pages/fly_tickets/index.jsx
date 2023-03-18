@@ -17,6 +17,7 @@ import Header from "../../components/Header";
 import { tokens } from "../../theme";
 import Chip from "@material-ui/core/Chip";
 
+
 const LocationTags = ({ tags, handleTagClick }) => (
     <Box display="flex" flexWrap="wrap" alignItems="center" mb="20px">
         {tags.map((tag) => (
@@ -32,7 +33,6 @@ const LocationTags = ({ tags, handleTagClick }) => (
         ))}
     </Box>
 );
-
 
 
 const FlyTickets = () => {
@@ -67,43 +67,23 @@ const FlyTickets = () => {
     const maxHeight = 950;
 
     //create an array of unique locations
-    const locations = Array.from(new Set(allEvents.map(event => event.location)));
+    const locations = ["All", ...Array.from(new Set(allEvents.map(event => event.location)))];
 
     // Define state variables to keep track of the selected tag and filtered notes
     const [events, setEvents] = useState(allEvents);
 
     // // Define function to handle tag clicks
     const handleTagClick = (location) => {
-        setEvents(allEvents.filter((event) => event.location.includes(location)));
-        setFilteredEvents(allEvents.filter((event) => event.location === location));
+        if (location === "All") {
+            // Show all events if "All" tag is clicked
+            setEvents(allEvents);
+        } else {
+
+            setEvents(allEvents.filter((event) => event.location.includes(location)));
+            setFilteredEvents(allEvents.filter((event) => event.location === location));
+        }
     };
 
-
-    // const handleDateClick = (selected) => {
-    //     const title = prompt("Please enter a new title for your event");
-    //     const calendarApi = selected.view.calendar;
-    //     calendarApi.unselect();
-
-    //     if (title) {
-    //         calendarApi.addEvent({
-    //             id: `${selected.dateStr}-${title}`,
-    //             title,
-    //             start: selected.startStr,
-    //             end: selected.endStr,
-    //             allDay: selected.allDay,
-    //         });
-    //     }
-    // };
-
-    // const handleEventClick = (selected) => {
-    //     if (
-    //         window.confirm(
-    //             `Are you sure you want to delete the event '${selected.event.title}'`
-    //         )
-    //     ) {
-    //         selected.event.remove();
-    //     }
-    // };
 
     useEffect(() => {
         const listHeight = listRef.current.getBoundingClientRect().height;
@@ -138,7 +118,7 @@ const FlyTickets = () => {
                                             primary={event.title}
                                             secondary={
                                                 <Typography>
-                                                    {formatDate(event.start, {
+                                                    {formatDate(event.date, {
                                                         year: 'numeric',
                                                         month: 'short',
                                                         day: 'numeric',
@@ -175,7 +155,7 @@ const FlyTickets = () => {
                             // select={handleDateClick}
                             // eventClick={handleEventClick}
                             //eventsSet={(events) => { setEvents(events); }}
-                            initialEvents={allEvents}
+                            events={events}
                             eventContent={(eventInfo) => {
                                 //console.log(eventInfo.event)
                                 return (
@@ -202,3 +182,31 @@ const FlyTickets = () => {
 };
 
 export default FlyTickets;
+
+
+
+    // const handleDateClick = (selected) => {
+    //     const title = prompt("Please enter a new title for your event");
+    //     const calendarApi = selected.view.calendar;
+    //     calendarApi.unselect();
+
+    //     if (title) {
+    //         calendarApi.addEvent({
+    //             id: `${selected.dateStr}-${title}`,
+    //             title,
+    //             start: selected.startStr,
+    //             end: selected.endStr,
+    //             allDay: selected.allDay,
+    //         });
+    //     }
+    // };
+
+    // const handleEventClick = (selected) => {
+    //     if (
+    //         window.confirm(
+    //             `Are you sure you want to delete the event '${selected.event.title}'`
+    //         )
+    //     ) {
+    //         selected.event.remove();
+    //     }
+    // };

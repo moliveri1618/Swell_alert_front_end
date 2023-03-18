@@ -46,15 +46,19 @@ const Notes = () => {
         }
     ];
     // Create an array of unique tags
-    const uniqueTags = Array.from(new Set(allNotes.flatMap((note) => note.tags)));
+    const uniqueTags = ["All", ...Array.from(new Set(allNotes.flatMap((note) => note.tags)))];
 
     // Define state variables to keep track of the selected tag and filtered notes
     const [notes, setNotes] = useState(allNotes);
 
     // Define function to handle tag clicks
     const handleTagClick = (tag) => {
-        setNotes(allNotes.filter((note) => note.tags.includes(tag)));
-
+        if (tag === "All") {
+            // Show all events if "All" tag is clicked
+            setNotes(allNotes);
+        } else {
+            setNotes(allNotes.filter((note) => note.tags.includes(tag)));
+        }
     };
 
 
