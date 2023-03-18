@@ -5,7 +5,7 @@ import Header from "../../components/Header";
 const VisitedCountries = () => {
   return (
     <Box m="20px" height="75vh" p="2px">
-      <Header title="Visited Countries" subtitle="Keep track of all the countries you have visited" />
+      <Header title="Visited Countries" subtitle="Evertytime a spot will be selected in the Spot List section, the related contry will appear here" />
       <GeographyChart />
     </Box>
   );

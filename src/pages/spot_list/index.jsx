@@ -50,7 +50,7 @@ const SpotList = () => {
   return (
     <Box m="20px">
       <Box display="flex" justifyContent="space-between" alignItems="center">
-        <Header title="Spot List" subtitle="List of all your favourite spots" />
+        <Header title="Spot List" subtitle="Click on a row to see wave height/wave quality trend for the current year"/>
       </Box>
       <Box
         m="8px 0 0 0"

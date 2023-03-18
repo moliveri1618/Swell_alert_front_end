@@ -7,8 +7,6 @@ import Topbar from "./pages/global/Topbar";
 
 import Dashboard from "./pages/dashboard";
 import SpotList from "./pages/spot_list";
-import DataAnalyzer from "./pages/spot_data_analyzer";
-import SpotGeoLocation from "./pages/visited_countries";
 import Team from "./pages/team";
 import Invoices from "./pages/invoices";
 import Contacts from "./pages/contacts";
@@ -20,6 +18,8 @@ import Pie from "./pages/pie";
 import FAQ from "./pages/faq";
 import Geography from "./pages/geography";
 import VisitedCountries from "./pages/visited_countries";
+import SpotRating from "./pages/spot_rating";
+import Notes from "./pages/notes";
 
 const App = () => {
   const [theme, colorMode] = useMode();
@@ -34,8 +34,9 @@ const App = () => {
               <Routes>
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/spot_list" element={<SpotList />} />
-                <Route path="/data_analyzer" element={<DataAnalyzer />} />
+                <Route path="/spot_rating" element={<SpotRating />} />
                 <Route path="/visited_countries" element={<VisitedCountries />} />
+                <Route path="/notes" element={<Notes />} />
                 <Route path="/team" element={<Team />} />
                 <Route path="/contacts" element={<Contacts />} />
                 <Route path="/invoices" element={<Invoices />} />

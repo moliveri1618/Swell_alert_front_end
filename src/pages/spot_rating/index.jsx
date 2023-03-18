@@ -4,15 +4,15 @@ import { Box } from '@mui/material';
 import Header from '../../components/Header';
 // import { useTheme } from '@mui/material';
 // import { tokens } from '../../theme';
-const DataAnalyzer = () => {
+const SpotRating = () => {
     // const theme = useTheme()
     // const colors = tokens(theme.palette.mode)
     return (
         <Box m="20px" height="75vh">
-            <Header title="Spot data analyzer" subtitle="Keep track of surfing quality for each spot" />
+            <Header title="Spot Rating" subtitle="classify each spot based on wave height/wave quality" />
             <BarChart />
         </Box>
     )
 }
 
-export default DataAnalyzer
+export default SpotRating

@@ -4,37 +4,37 @@ import { useTheme } from '@mui/material';
 import { tokens } from '../theme';
 import { mockBarData } from '../data/mockData';
 
-const BarChart = ({isDashboard=false}) => {
+const BarChart = ({ isDashboard = false }) => {
     const theme = useTheme()
     const colors = tokens(theme.palette.mode)
     return (
         <ResponsiveBar
             data={mockBarData}
             theme={{
-                axis:{
-                    domain: {           
-                        line:{
-                            stroke:colors.grey[100]
+                axis: {
+                    domain: {
+                        line: {
+                            stroke: colors.grey[100]
                         }
                     },
-                    legend:{
-                        text:{
-                           fill:colors.grey[100] 
+                    legend: {
+                        text: {
+                            fill: colors.grey[100]
                         }
                     },
-                    ticks:{
-                        line:{
-                           stroke:colors.grey[100],
-                           strokeWidth:1
+                    ticks: {
+                        line: {
+                            stroke: colors.grey[100],
+                            strokeWidth: 1
                         },
-                        text:{
-                            fill:colors.grey[100] 
-                         }
+                        text: {
+                            fill: colors.grey[100]
+                        }
                     }
                 },
-                legends:{
-                    text:{
-                        fill:colors.grey[100]
+                legends: {
+                    text: {
+                        fill: colors.grey[100]
                     }
                 },
                 tooltip: {
@@ -50,7 +50,8 @@ const BarChart = ({isDashboard=false}) => {
                 'sandwich',
                 'kebab',
                 'fries',
-                'donut'
+                'donut',
+                'xcio'
             ]}
             indexBy="country"
             margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
@@ -159,7 +160,7 @@ const BarChart = ({isDashboard=false}) => {
             ]}
             role="application"
             ariaLabel="Nivo bar chart demo"
-            barAriaLabel={function(e){return e.id+": "+e.formattedValue+" in country: "+e.indexValue}}
+            barAriaLabel={function (e) { return e.id + ": " + e.formattedValue + " in country: " + e.indexValue }}
         />
     )
 

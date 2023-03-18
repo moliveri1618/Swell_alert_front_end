@@ -60,34 +60,34 @@ const GeographyChart = ({ isDashboard = false }) => {
             borderWidth={0.5}
             borderColor="#fff"
 
-            legends={
-                !isDashboard ?
-                    [
-                        {
-                            anchor: 'bottom-left',
-                            direction: 'column',
-                            justify: true,
-                            translateX: 20,
-                            translateY: -100,
-                            itemsSpacing: 0,
-                            itemWidth: 94,
-                            itemHeight: 18,
-                            itemDirection: 'left-to-right',
-                            itemTextColor: colors.grey[100],
-                            itemOpacity: 0.85,
-                            symbolSize: 18,
-                            effects: [
-                                {
-                                    on: 'hover',
-                                    style: {
-                                        itemTextColor: colors.greenAccent[500],
-                                        itemOpacity: 1
-                                    }
-                                }
-                            ]
-                        }
-                    ] : undefined
-            }
+        // legends={
+        //     !isDashboard ?
+        //         [
+        //             {
+        //                 anchor: 'bottom-left',
+        //                 direction: 'column',
+        //                 justify: true,
+        //                 translateX: 20,
+        //                 translateY: -100,
+        //                 itemsSpacing: 0,
+        //                 itemWidth: 94,
+        //                 itemHeight: 18,
+        //                 itemDirection: 'left-to-right',
+        //                 itemTextColor: colors.grey[100],
+        //                 itemOpacity: 0.85,
+        //                 symbolSize: 18,
+        //                 effects: [
+        //                     {
+        //                         on: 'hover',
+        //                         style: {
+        //                             itemTextColor: colors.greenAccent[500],
+        //                             itemOpacity: 1
+        //                         }
+        //                     }
+        //                 ]
+        //             }
+        //         ] : undefined
+        // }
         />
     );
 };

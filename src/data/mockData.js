@@ -330,17 +330,6 @@ export const mockTransactions = [
 
 export const mockBarData = [
   {
-    country: "AD",
-    "hot dog": 137,
-    "hot dogColor": "hsl(229, 70%, 50%)",
-    burger: 96,
-    burgerColor: "hsl(296, 70%, 50%)",
-    kebab: 72,
-    kebabColor: "hsl(97, 70%, 50%)",
-    donut: 140,
-    donutColor: "hsl(340, 70%, 50%)"
-  },
-  {
     country: "AE",
     "hot dog": 55,
     "hot dogColor": "hsl(307, 70%, 50%)",
@@ -349,7 +338,20 @@ export const mockBarData = [
     kebab: 58,
     kebabColor: "hsl(273, 70%, 50%)",
     donut: 29,
-    donutColor: "hsl(275, 70%, 50%)"
+    donutColor: "hsl(275, 70%, 50%)",
+    xcio: 140
+  },
+  {
+    country: "AD",
+    "hot dog": 137,
+    "hot dogColor": "hsl(229, 70%, 50%)",
+    burger: 96,
+    burgerColor: "hsl(296, 70%, 50%)",
+    kebab: 72,
+    kebabColor: "hsl(97, 70%, 50%)",
+    donut: 140,
+    donutColor: "hsl(340, 70%, 50%)",
+    xcio: 155
   },
   {
     country: "AF",
@@ -737,7 +739,7 @@ export const mockGeographyData = [
   },
   {
     id: "CAN",
-    value: 332843
+    value: 714503
   },
   {
     id: "CHE",

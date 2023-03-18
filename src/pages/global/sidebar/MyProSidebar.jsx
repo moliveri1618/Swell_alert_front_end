@@ -188,8 +188,8 @@ const MyProSidebar = () => {
             />
 
             <Item
-              title="Spot Data Analyzer"
-              to="/data_analyzer"
+              title="Spot Rating"
+              to="/spot_rating"
               icon={<LeaderboardIcon />}
               selected={selected}
               setSelected={setSelected}
@@ -199,6 +199,14 @@ const MyProSidebar = () => {
               title="Visited Countries"
               to="/visited_countries"
               icon={<MapIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+
+            <Item
+              title="Notes"
+              to="/notes"
+              icon={<ReceiptOutlinedIcon />}
               selected={selected}
               setSelected={setSelected}
             />
