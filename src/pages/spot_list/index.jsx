@@ -13,6 +13,7 @@ import Header from "../../components/Header";
 import LineChart from "../../components/LineChart";
 
 
+
 const SpotList = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
