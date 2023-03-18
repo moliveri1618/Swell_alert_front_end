@@ -54,6 +54,7 @@ const Notes = () => {
     // Define function to handle tag clicks
     const handleTagClick = (tag) => {
         setNotes(allNotes.filter((note) => note.tags.includes(tag)));
+
     };
 
 

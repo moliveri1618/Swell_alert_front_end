@@ -1,0 +1,197 @@
+import { useState, useRef, useEffect } from "react";
+import FullCalendar, { formatDate } from "@fullcalendar/react";
+import Grid from "@mui/material/Unstable_Grid2";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import timeGridPlugin from "@fullcalendar/timegrid";
+import interactionPlugin from "@fullcalendar/interaction";
+import listPlugin from "@fullcalendar/list";
+import {
+    Box,
+    List,
+    ListItem,
+    ListItemText,
+    Typography,
+    useTheme,
+} from "@mui/material";
+import Header from "../../components/Header";
+import { tokens } from "../../theme";
+
+const AllEvents = [
+    {
+        id: "12315",
+        title: "All-day event",
+        date: "2022-09-14",
+    },
+    {
+        id: "5123",
+        title: "Timed event",
+        date: "2022-09-28",
+    },
+    {
+        id: "111",
+        title: "Ciaso",
+        date: "2022-09-11",
+    },
+    {
+        id: "1231",
+        title: "Ciaso",
+        date: "2022-09-11",
+    },
+    // {
+    //     id: "12315",
+    //     title: "All-day event",
+    //     date: "2022-09-14",
+    // },
+    // {
+    //     id: "5123",
+    //     title: "Timed event",
+    //     date: "2022-09-28",
+    // },
+    // {
+    //     id: "111",
+    //     title: "Ciaso",
+    //     date: "2022-09-11",
+    // },
+    // {
+    //     id: "1231",
+    //     title: "Ciaso",
+    //     date: "2022-09-11",
+    // },
+    // {
+    //     id: "12315",
+    //     title: "All-day event",
+    //     date: "2022-09-14",
+    // },
+    // {
+    //     id: "5123",
+    //     title: "Timed event",
+    //     date: "2022-09-28",
+    // },
+    // {
+    //     id: "111",
+    //     title: "Ciaso",
+    //     date: "2022-09-11",
+    // },
+    // {
+    //     id: "1231",
+    //     title: "Ciaso",
+    //     date: "2022-09-11",
+    // }
+];
+
+const FlyTickets = () => {
+    const theme = useTheme();
+    const colors = tokens(theme.palette.mode);
+    const [currentEvents, setCurrentEvents] = useState([]);
+
+    //calculate height of div based on n events
+    const [listHeight, setListHeight] = useState(0);
+    const listRef = useRef(null);
+    const maxHeight = 800;
+
+    const handleDateClick = (selected) => {
+        const title = prompt("Please enter a new title for your event");
+        const calendarApi = selected.view.calendar;
+        calendarApi.unselect();
+
+        if (title) {
+            calendarApi.addEvent({
+                id: `${selected.dateStr}-${title}`,
+                title,
+                start: selected.startStr,
+                end: selected.endStr,
+                allDay: selected.allDay,
+            });
+        }
+    };
+
+    const handleEventClick = (selected) => {
+        if (
+            window.confirm(
+                `Are you sure you want to delete the event '${selected.event.title}'`
+            )
+        ) {
+            selected.event.remove();
+        }
+    };
+
+    useEffect(() => {
+        const listHeight = listRef.current.getBoundingClientRect().height;
+        setListHeight(listHeight);
+        console.log(listHeight)
+    }, [currentEvents]);
+
+
+    return (
+        <Box m="20px">
+            <Header title="Calendar" subtitle="Full Calendar Interactive Page" />
+            <Grid container spacing={2}>
+                <Grid xs={12} md={4}>
+                    <Box
+                        backgroundColor={colors.primary[400]}
+                        p="15px"
+                        borderRadius="4px"
+                    >
+                        <Typography variant="h5">Events</Typography>
+                        <div style={{ height: `min(${listHeight}px, ${maxHeight}px)`, overflow: 'auto' }}>
+                            <List ref={listRef}>
+                                {currentEvents.map((event) => (
+                                    <ListItem
+                                        key={event.id}
+                                        sx={{
+                                            backgroundColor: colors.greenAccent[500],
+                                            margin: '10px 0',
+                                            borderRadius: '2px',
+                                        }}
+                                    >
+                                        <ListItemText
+                                            primary={event.title}
+                                            secondary={
+                                                <Typography>
+                                                    {formatDate(event.start, {
+                                                        year: 'numeric',
+                                                        month: 'short',
+                                                        day: 'numeric',
+                                                    })}
+                                                </Typography>
+                                            }
+                                        />
+                                    </ListItem>
+                                ))}
+                            </List>
+                        </div>
+                    </Box>
+                </Grid>
+                <Grid xs={12} md={8}>
+                    <Box ml="15px">
+                        <FullCalendar
+                            height="75vh"
+                            plugins={[
+                                dayGridPlugin,
+                                timeGridPlugin,
+                                interactionPlugin,
+                                listPlugin,
+                            ]}
+                            headerToolbar={{
+                                left: "prev,next today",
+                                center: "title",
+                                right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth",
+                            }}
+                            initialView="dayGridMonth"
+                            editable={true}
+                            selectable={true}
+                            selectMirror={true}
+                            dayMaxEvents={true}
+                            select={handleDateClick}
+                            eventClick={handleEventClick}
+                            eventsSet={(events) => setCurrentEvents(events)}
+                            initialEvents={AllEvents}
+                        />
+                    </Box>
+                </Grid>
+            </Grid>
+        </Box>
+    );
+};
+
+export default FlyTickets;

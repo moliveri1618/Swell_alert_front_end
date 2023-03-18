@@ -20,13 +20,17 @@ import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
-
+import NewspaperIcon from '@mui/icons-material/Newspaper';
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 import SwitchRightOutlinedIcon from "@mui/icons-material/SwitchRightOutlined";
 import SwitchLeftOutlinedIcon from "@mui/icons-material/SwitchLeftOutlined";
+import SpeakerNotesIcon from '@mui/icons-material/SpeakerNotes';
+import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
+
+
 const Item = ({ title, to, icon, selected, setSelected }) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -206,7 +210,7 @@ const MyProSidebar = () => {
             <Item
               title="Notes"
               to="/notes"
-              icon={<ReceiptOutlinedIcon />}
+              icon={<SpeakerNotesIcon />}
               selected={selected}
               setSelected={setSelected}
             />
@@ -240,6 +244,15 @@ const MyProSidebar = () => {
             >
               Airplane Tickets
             </Typography>
+
+            <Item
+              title="Fly tickets"
+              to="/fly_tickets"
+              icon={<FlightTakeoffIcon />}
+              selected={selected}
+              setSelected={setSelected}
+            />
+
             <Item
               title="Profile Form"
               to="/form"
