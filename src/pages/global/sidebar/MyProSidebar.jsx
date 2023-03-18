@@ -196,8 +196,8 @@ const MyProSidebar = () => {
             />
 
             <Item
-              title="Spot Geo Location"
-              to="/spot_geolocation"
+              title="Visited Countries"
+              to="/visited_countries"
               icon={<MapIcon />}
               selected={selected}
               setSelected={setSelected}

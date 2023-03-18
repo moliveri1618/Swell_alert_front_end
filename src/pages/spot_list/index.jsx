@@ -2,8 +2,7 @@ import React from "react";
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
+import { Checkbox } from '@material-ui/core';
 import DialogTitle from '@mui/material/DialogTitle';
 import { Box, useTheme } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
@@ -17,28 +16,25 @@ import LineChart from "../../components/LineChart";
 const SpotList = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  let checkbox_is_selected = false;
   const columns = [
     { field: "id", headerName: "Id", width: 100 },
     { field: "registrarId", headerName: "Registrar Id", width: 100 },
-    {
-      field: "name",
-      headerName: "Name",
-      cellClassName: "name-column--cell",
-      width: 200,
-    },
-    {
-      field: "age",
-      headerName: "Age",
-      type: "number",
-      headerAlign: "left",
-      align: "left",
-      width: 100,
-    },
+    { field: "name", headerName: "Name", cellClassName: "name-column--cell", width: 200 },
+    { field: "age", headerName: "Age", type: "number", headerAlign: "left", align: "left", width: 100 },
     { field: "phone", headerName: "Phone Number", width: 100 },
     { field: "email", headerName: "Email", width: 200 },
     { field: "address", headerName: "Address", width: 250 },
     { field: "city", headerName: "City", width: 100 },
     { field: "zipCode", headerName: "Zip Code", width: 100 },
+    {
+      field: "visited", headerName: "Visited", width: 100, renderCell: (params) => (
+        <Checkbox
+          checked={params.value}
+          inputProps={{ 'aria-label': 'visited checkbox' }}
+        />
+      )
+    }
   ];
 
   const [open, setOpen] = React.useState(false);
@@ -91,7 +87,16 @@ const SpotList = () => {
       >
         <DataGrid
           rows={mockDataContacts}
-          onRowClick={(rowData) => handleClickOpen(rowData)}
+          onRowClick={(rowData, event) => {
+
+            //if user click on checbox dont do nothing, otherwise open dialog
+            if (event.target.getAttribute('aria-colindex') !== '10' && event.target.getAttribute('aria-colindex') !== null) {
+              handleClickOpen(rowData);
+            } else {
+              console.log(rowData);
+              //call api from here and change visited in db ....
+            }
+          }}
           columns={columns}
           components={{ Toolbar: GridToolbar }}
         />
