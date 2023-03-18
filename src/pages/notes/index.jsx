@@ -49,13 +49,10 @@ const Notes = () => {
     const uniqueTags = Array.from(new Set(allNotes.flatMap((note) => note.tags)));
 
     // Define state variables to keep track of the selected tag and filtered notes
-    const [selectedTag, setSelectedTag] = useState("");
     const [notes, setNotes] = useState(allNotes);
 
     // Define function to handle tag clicks
     const handleTagClick = (tag) => {
-        console.log(allNotes);
-        setSelectedTag(tag);
         setNotes(allNotes.filter((note) => note.tags.includes(tag)));
     };
 
@@ -65,7 +62,7 @@ const Notes = () => {
             <Header title="Notes" subtitle="Important notes about surfing spots" />
             <NoteTags tags={uniqueTags} handleTagClick={handleTagClick} />
             {notes.map((note) => (
-                <Accordion key={note.title} defaultExpanded>
+                <Accordion key={note.title}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                         <Typography color={colors.greenAccent[500]} variant="h5">
                             {note.title}
