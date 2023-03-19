@@ -33,7 +33,6 @@ const Notes = () => {
     ];
     // Create an array of unique tags
     const uniqueTags = ["All", ...Array.from(new Set(allNotes.flatMap((note) => note.tags)))];
-    console.log(uniqueTags)
 
     // Define state variables to keep track of the selected tag and filtered notes
     const [notes, setNotes] = useState(allNotes);
@@ -54,7 +53,8 @@ const Notes = () => {
             <Header title="Notes" subtitle="Important notes about surfing spots" />
             <Box display="flex" flexWrap="wrap" alignItems="center" mb="20px">
                 {uniqueTags.map((tag) => (
-                    <Chip
+                    <Button
+                        type="submit" color="secondary" variant="contained"
                         key={tag}
                         label={tag}
                         mr="10px"
@@ -62,7 +62,8 @@ const Notes = () => {
                         mx="10px"
                         my="10px"
                         onClick={() => handleTagClick(tag)}
-                    />
+                    >{tag}
+                    </Button>
                 ))}
             </Box>
             {notes.map((note) => (
