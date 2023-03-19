@@ -9,22 +9,8 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { tokens } from "../../theme";
 import Chip from "@material-ui/core/Chip";
 import './index.css';
+import { Button } from '@mui/material'
 
-const NoteTags = ({ tags, handleTagClick }) => (
-    <Box display="flex" flexWrap="wrap" alignItems="center" mb="20px">
-        {tags.map((tag) => (
-            <Chip
-                key={tag}
-                label={tag}
-                mr="10px"
-                mb="10px"
-                mx="10px"
-                my="10px"
-                onClick={() => handleTagClick(tag)}
-            />
-        ))}
-    </Box>
-);
 
 
 const Notes = () => {
@@ -65,7 +51,19 @@ const Notes = () => {
     return (
         <Box m="20px">
             <Header title="Notes" subtitle="Important notes about surfing spots" />
-            <NoteTags tags={uniqueTags} handleTagClick={handleTagClick} />
+            <Box display="flex" flexWrap="wrap" alignItems="center" mb="20px">
+                {uniqueTags.map((tag) => (
+                    <Chip
+                        key={tag}
+                        label={tag}
+                        mr="10px"
+                        mb="10px"
+                        mx="10px"
+                        my="10px"
+                        onClick={() => handleTagClick(tag)}
+                    />
+                ))}
+            </Box>
             {notes.map((note) => (
                 <Accordion key={note.title}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon />}>
@@ -78,6 +76,11 @@ const Notes = () => {
                     </AccordionDetails>
                 </Accordion>
             ))}
+            <Box display="flex" justifyContent="end" mt="20px">
+                <Button type="submit" color="secondary" variant="contained">
+                    Create New Note
+                </Button>
+            </Box>
         </Box>
     );
 };

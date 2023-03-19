@@ -149,12 +149,13 @@ const FlyTickets = () => {
                             }}
                             initialView="dayGridMonth"
                             // editable={true}
-                            // selectable={true}
+                            selectable={true}
                             selectMirror={true}
                             dayMaxEvents={true}
                             // select={handleDateClick}
                             // eventClick={handleEventClick}
                             //eventsSet={(events) => { setEvents(events); }}
+                            //initialEvents={events}
                             events={events}
                             eventContent={(eventInfo) => {
                                 //console.log(eventInfo.event)
