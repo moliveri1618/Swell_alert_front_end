@@ -33,6 +33,7 @@ const Notes = () => {
     ];
     // Create an array of unique tags
     const uniqueTags = ["All", ...Array.from(new Set(allNotes.flatMap((note) => note.tags)))];
+    console.log(uniqueTags)
 
     // Define state variables to keep track of the selected tag and filtered notes
     const [notes, setNotes] = useState(allNotes);
