@@ -54,6 +54,13 @@ const Notes = () => {
             <Box display="flex" flexWrap="wrap" alignItems="center" mb="20px">
                 {uniqueTags.map((tag) => (
                     <Button
+                        style={{
+                            backgroundColor: 'red', // change the background color of the event tag
+                            borderRadius: '10px', // add rounded corners to the event tag
+                            padding: '5px', // add some padding to the event tag
+                            fontSize: '12px', // change the font size of the event tag
+                            fontWeight: 'bold', // add bold font weight to the event tag
+                        }}
                         type="submit" color="secondary" variant="contained"
                         key={tag}
                         label={tag}
