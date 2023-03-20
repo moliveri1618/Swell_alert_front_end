@@ -71,6 +71,9 @@ https://www.youtube.com/watch?v=wYpCWwD1oz0&ab_channel=EdRoh
 
 
 # React + Mui Dashboard
+first time project:
+npm install --legacy-peer-deps
+npm install react-scripts --save --legacy-peer-deps
 
 
 ## Acknowledgements
