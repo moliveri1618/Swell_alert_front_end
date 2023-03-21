@@ -17,6 +17,7 @@ const SpotList = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   let checkbox_is_selected = false;
+  
   const columns = [
     { field: "id", headerName: "Id", width: 100 },
     { field: "registrarId", headerName: "Registrar Id", width: 100 },
