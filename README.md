@@ -66,6 +66,8 @@ https://www.youtube.com/watch?v=wYpCWwD1oz0&ab_channel=EdRoh
 ![fronent](https://user-images.githubusercontent.com/48484544/225307286-371c75ca-2ced-4925-9647-941ff09499fd.png)
 
 
+https://www.youtube.com/watch?v=uoJ0Tv-BFcQ&ab_channel=EdRoh
+2.39 x un bel grafico swell height
 
 
 
